@@ -9,19 +9,23 @@ const getProductById: ValidatedEventAPIGatewayProxyEvent<any> = async (
   const productId = event.pathParameters?.productId;
 
   if (!productId) {
-    return formatJSONResponse({
-      status: 400,
-      error: "Product id is not found!",
-    });
+    return formatJSONResponse(
+      {
+        error: "Product id is not found!",
+      },
+      400
+    );
   }
 
   const book = books.find((b) => b.id === Number(productId));
 
   if (!book) {
-    return formatJSONResponse({
-      status: 404,
-      error: `There is no book with id ${productId}`,
-    });
+    return formatJSONResponse(
+      {
+        error: `There is no book with id ${productId}`,
+      },
+      404
+    );
   }
   return formatJSONResponse(book);
 };
