@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Product Service
+  description: API for managing products
+  version: 1.0.0
+
+paths:
+  /products:
+    get:
+      summary: Get a list of products (books)
+      description: Retrieve a list of available products.
+      responses:
+        "200":
+          description: A list of products
+          content:
+            application/json:
+              example:
+                - id: 1
+                  name: Product A
+                  price: 19.99
+                  author: Author
+                - id: 2
+                  name: Product B
+                  price: 29.99
+                  author: Author
+        "500":
+          description: Internal Server Error
+
+  /products/{productId}:
+    get:
+      summary: Get a specific product by ID
+      description: Retrieve a product by its unique ID.
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          description: The ID of the product to retrieve.
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: The requested product by Id
+          content:
+            application/json:
+              example:
+                id: 1
+                name: Product A
+                price: 17.99
+                author: Author
+        "400":
+          description: Bad Request - productId is not provided
+        "404":
+          description: Book is not found
+        "500":
+          description: Internal Server Error
