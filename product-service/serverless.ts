@@ -18,6 +18,7 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
+      TABLE_NAMES: "Products Stocks",
     },
   },
   // import the function via paths
@@ -28,7 +29,7 @@ const serverlessConfiguration: AWS = {
       bundle: true,
       minify: false,
       sourcemap: true,
-      exclude: ["aws-sdk"],
+      exclude: [],
       target: "node18",
       define: { "require.resolve": undefined },
       platform: "node",

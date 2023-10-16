@@ -2,32 +2,44 @@
   "books": [
     {
       "id": 1,
-      "name": "Harry Potter 1",
+      "name": "Harry Potter and the Philosophers Stone",
       "price": 14,
       "author": "J.K. Rowling"
     },
     {
       "id": 2,
-      "name": "Harry Potter 2",
+      "name": "Harry Potter and the Chamber of the Secrets",
       "price": 14,
       "author": "J.K. Rowling"
     },
     {
       "id": 3,
-      "name": "Harry Potter 3",
+      "name": "Harry Potter and the Prisoner of Azkaban",
       "price": 15.99,
       "author": "J.K. Rowling"
     },
     {
       "id": 4,
-      "name": "Harry Potter 4",
+      "name": "Harry Potter and the Goblet of Fire",
       "price": 16,
       "author": "J.K. Rowling"
     },
     {
       "id": 5,
-      "name": "Harry Potter 5",
+      "name": "Harry Potter and the Order of the Phoenix",
       "price": 17,
+      "author": "J.K. Rowling"
+    },
+    {
+      "id": 6,
+      "name": "Harry Potter and the Half-Blood Prince",
+      "price": 17,
+      "author": "J.K. Rowling"
+    },
+    {
+      "id": 7,
+      "name": "Harry Potter and the Deathly Hallows",
+      "price": 18,
       "author": "J.K. Rowling"
     }
   ]

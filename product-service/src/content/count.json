@@ -1,0 +1,32 @@
+{
+  "count": [
+    {
+      "product_id": 1,
+      "count": 1
+    },
+    {
+      "product_id": 2,
+      "count": 4
+    },
+    {
+      "product_id": 3,
+      "count": 8
+    },
+    {
+      "product_id": 4,
+      "count": 6
+    },
+    {
+      "product_id": 5,
+      "count": 5
+    },
+    {
+      "product_id": 6,
+      "count": 2
+    },
+    {
+      "product_id": 7,
+      "count": 6
+    }
+  ]
+}
