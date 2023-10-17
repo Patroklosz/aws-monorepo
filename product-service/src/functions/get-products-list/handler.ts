@@ -24,7 +24,7 @@ const getProductsList: ValidatedEventAPIGatewayProxyEvent<any> = async () => {
     books:
       products?.map((product) => ({
         ...product,
-        count: stocks.find((s) => s.product_id === product.id).count,
+        count: stocks.find((s) => s.product_id === product.id)?.count ?? 0,
       })) ?? [],
   });
 };
