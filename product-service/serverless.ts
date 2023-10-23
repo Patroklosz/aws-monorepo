@@ -2,6 +2,7 @@ import type { AWS } from "@serverless/typescript";
 
 import getProductsList from "@functions/get-products-list";
 import getProductById from "@functions/get-product-by-id";
+import createProduct from "@functions/create-product";
 
 const serverlessConfiguration: AWS = {
   service: "product-service",
@@ -18,17 +19,18 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
+      TABLE_NAMES: "Products Stocks",
     },
   },
   // import the function via paths
-  functions: { getProductsList, getProductById },
+  functions: { getProductsList, getProductById, createProduct },
   package: { individually: true },
   custom: {
     esbuild: {
       bundle: true,
       minify: false,
       sourcemap: true,
-      exclude: ["aws-sdk"],
+      exclude: [],
       target: "node18",
       define: { "require.resolve": undefined },
       platform: "node",

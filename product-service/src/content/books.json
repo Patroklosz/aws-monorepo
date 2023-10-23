@@ -2,32 +2,51 @@
   "books": [
     {
       "id": 1,
-      "name": "Harry Potter 1",
+      "name": "Harry Potter and the Philosophers Stone",
       "price": 14,
+      "description": "Hagrid escorts Harry to Diagon Alley, the hidden wizard commerce and retail section in London. Harry's parents have left him a fortune kept in Gringotts Wizarding Bank, which he uses to buy school supplies and a wand from Ollivander's. The cores of Harry and Lord Voldemort's wands have feathers from the same phoenix bird, making them \"brothers\". Hagrid gifts Harry an owl, whom he names as Hedwig, as a birthday present. A month later, Harry boards the Hogwarts Express at King's Cross railway station's secret Platform 9+3⁄4. En route to Hogwarts, Harry befriends fellow first year Ron Weasley and meets Hermione Granger, whom the two boys initially dislike.",
       "author": "J.K. Rowling"
     },
     {
       "id": 2,
-      "name": "Harry Potter 2",
+      "name": "Harry Potter and the Chamber of the Secrets",
       "price": 14,
+      "description": "The three Weasley brothers, Ron, Fred and George, arrive in their father's flying Ford Anglia and rescue Harry, taking him to their home. Harry and the Weasley family travel to Diagon Alley for school supplies. They run into Hermione Granger and meet Lucius Malfoy, father of Draco, and also Gilderoy Lockhart, a conceited autobiographer and adventurer who is the new Defence Against the Dark Arts professor. At King's Cross station, Harry and Ron cannot enter Platform 9¾ and miss the Hogwarts Express. They fly in Mr Weasley's car to Hogwarts, crashing into the Whomping Willow on school grounds and damaging Ron's wand. The car then escapes into the forest.",
       "author": "J.K. Rowling"
     },
     {
       "id": 3,
-      "name": "Harry Potter 3",
+      "name": "Harry Potter and the Prisoner of Azkaban",
       "price": 15.99,
+      "description": "At Hogwarts, the guards of Azkaban, known as the Dementors, patrol the school looking for Black. Harry is unusually affected by their presence, and asks help from Remus Lupin, the new Defence Against the Dark Arts teacher, in learning to repel them. Lupin teaches Harry the incredibly difficult Patronus charm, but Harry is able to produce a full-bodied Patronus to fight off the Dementors. Meanwhile, Black is reported to have been sighted in the village of Hogsmeade, close to Hogwarts.",
       "author": "J.K. Rowling"
     },
     {
       "id": 4,
-      "name": "Harry Potter 4",
+      "name": "Harry Potter and the Goblet of Fire",
       "price": 16,
+      "description": "Hogwarts reopens and a new tournament is announced between three schools to compete for the Triwizard Cup. The other competing schools are Beauxbatons and Durmstrang. Students excitedly await the start of the Tournament, which is declared open after the visiting teams arrive. The Goblet of Fire, a magical object tasked with selecting the champions, is unveiled. It names three champions from each of the schools, then selects Harry as a fourth champion, despite him being underage.",
       "author": "J.K. Rowling"
     },
     {
       "id": 5,
-      "name": "Harry Potter 5",
+      "name": "Harry Potter and the Order of the Phoenix",
       "price": 17,
+      "description": "The Order of the Phoenix, a secret organisation, founded by Albus Dumbledore, informs Harry that the Ministry of Magic is oblivious to Lord Voldemort's return. At the Order's headquarters, Harry's godfather, Sirius Black, mentions that Voldemort seeks an object he previously lacked; Harry believes it to be a weapon.",
+      "author": "J.K. Rowling"
+    },
+    {
+      "id": 6,
+      "name": "Harry Potter and the Half-Blood Prince",
+      "price": 17,
+      "description": "New Minister for Magic, Rufus Scrimgeour, meets with the Muggle prime minister to discuss recent wizarding events affecting the non-magical world. Meanwhile, Harry, grieving his late godfather, Sirius Black, endures another summer at the Dursleys. Dumbledore unexpectedly arrives to escort Harry to the Weasleys' home. First, they visit retired Hogwarts professor Horace Slughorn, whom Dumbledore wants to resume his former post. Slughorn agrees only after meeting the famous Harry Potter. Elsewhere, Bellatrix Lestrange and her sister Narcissa Malfoy secretly seek out Severus Snape at his home. Narcissa asks Snape to make an Unbreakable Vow to protect her son, Draco, and to carry out a task, should he fail.",
+      "author": "J.K. Rowling"
+    },
+    {
+      "id": 7,
+      "name": "Harry Potter and the Deathly Hallows",
+      "price": 18,
+      "description": "Harry is about to turn seventeen and will lose his deceased mother's magical protection. Order of the Phoenix members relocate the Dursleys for their protection. Harry is being flown to The Burrow, with friends and allies acting as identical decoys. Death Eaters immediately attack, and, in the ensuing battle, \"Mad-Eye\" Moody and Hedwig are killed while George Weasley is wounded. Voldemort arrives to kill Harry, whose wand fends off the attack.",
       "author": "J.K. Rowling"
     }
   ]
