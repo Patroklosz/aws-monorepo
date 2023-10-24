@@ -1,10 +1,7 @@
-import type { ValidatedEventAPIGatewayProxyEvent } from "@libs/api-gateway";
-import { middyfy } from "@libs/lambda";
-import { S3 } from "aws-sdk";
+'use strict';
+const { S3 } = require('aws-sdk');
 
-const importProductsFile: ValidatedEventAPIGatewayProxyEvent<unknown> = async (
-  event
-) => {
+module.exports.main = async (event) => {
   const s3 = new S3({ region: "eu-central-1", signatureVersion: "v4" });
   const fileName = event.queryStringParameters?.name;
 
@@ -14,8 +11,6 @@ const importProductsFile: ValidatedEventAPIGatewayProxyEvent<unknown> = async (
       body: "Name query param is not defined!",
     };
   }
-
-  console.log("Key", fileName);
 
   const params = {
     Bucket: process.env.S3_BUCKET,
@@ -38,5 +33,3 @@ const importProductsFile: ValidatedEventAPIGatewayProxyEvent<unknown> = async (
     body: JSON.stringify({ url }),
   };
 };
-
-export const main = middyfy(importProductsFile);

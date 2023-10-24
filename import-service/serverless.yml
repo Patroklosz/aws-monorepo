@@ -1,0 +1,42 @@
+service: import-service
+
+frameworkVersion: "3"
+
+custom:
+  bundle:
+    sourcemaps: false
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: eu-central-1
+  httpApi:
+    cors: true
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action: 's3:*'
+          Resource: 'arn:aws:s3:::import-service-bucket-4120/*'
+
+functions:
+  importProductsFile:
+    handler: import-products-file/handler.main
+    events:
+      - httpApi:
+          path: /import
+          method: GET
+    environment:
+      S3_BUCKET: 'import-service-bucket-4120'
+  importFileParser:
+    handler: import-file-parser/handler.main
+    events:
+      - s3:
+          bucket: 'import-service-bucket-4120'
+          event: 's3:ObjectCreated:*'
+          existing: true
+          rules:
+            - prefix: uploaded/
+    environment:
+      S3_BUCKET: 'import-service-bucket-4120'
