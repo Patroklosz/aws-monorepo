@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1480.0",
+    "csv-parser": "^3.0.0"
+  },
+  "devDependencies": {
+    "serverless": "^3.36.0"
+  }
+}
