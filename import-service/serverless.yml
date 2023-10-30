@@ -16,9 +16,9 @@ provider:
   iam:
     role:
       statements:
-        - Effect: 'Allow'
-          Action: 's3:*'
-          Resource: 'arn:aws:s3:::import-service-bucket-4120/*'
+        - Effect: "Allow"
+          Action: "s3:*"
+          Resource: "arn:aws:s3:::import-service-bucket-4120/*"
 
 functions:
   importProductsFile:
@@ -28,15 +28,17 @@ functions:
           path: /import
           method: GET
     environment:
-      S3_BUCKET: 'import-service-bucket-4120'
+      S3_BUCKET: "import-service-bucket-4120"
   importFileParser:
     handler: import-file-parser/handler.main
     events:
       - s3:
-          bucket: 'import-service-bucket-4120'
-          event: 's3:ObjectCreated:*'
+          bucket: "import-service-bucket-4120"
+          event: "s3:ObjectCreated:*"
           existing: true
           rules:
             - prefix: uploaded/
+    destinations:
+      onSuccess: arn:aws:sqs:eu-central-1:906118294309:catalogItemsQueue
     environment:
-      S3_BUCKET: 'import-service-bucket-4120'
+      S3_BUCKET: "import-service-bucket-4120"

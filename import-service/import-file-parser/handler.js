@@ -14,9 +14,6 @@ async function moveFiles(objectKey) {
 
     readStream
       .pipe(csvParser())
-      .on('data', data => {
-        console.log('File data:', data);
-      })
       .on('end', async () => {
         const source = `${S3_BUCKET}/${objectKey}`;
         const distKey = objectKey.replace(bucketSource, bucketDist);
@@ -27,19 +24,15 @@ async function moveFiles(objectKey) {
           Key: distKey,
         }).promise();
 
-        console.log(`File copied from ${source} to ${S3_BUCKET}/${distKey}`);
-
         await s3.deleteObject({
           Bucket: S3_BUCKET,
           Key: objectKey,
         }).promise();
 
-        console.log(`File deleted from ${source}`);
-
         resolve();
       })
       .on('error', err => {
-        console.error('Error:', err);
+        console.log('Error:', err);
         reject(err);
       });
   });
