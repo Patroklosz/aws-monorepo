@@ -1,7 +1,7 @@
-export interface Product {
+export interface Product<T = number> {
   id: number;
   name: string;
-  price: number;
+  price: T;
   description: string;
   author: string;
 }
@@ -11,6 +11,8 @@ export interface Stock {
   count: number;
 }
 
-export interface Book extends Product {
-  count: number;
+export interface Book<T = number> extends Product<T> {
+  count: T;
 }
+
+export interface RawProduct extends Omit<Book<string>, "id"> {}

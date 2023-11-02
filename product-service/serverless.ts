@@ -22,6 +22,13 @@ const serverlessConfiguration: AWS = {
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
       TABLE_NAMES: "Products Stocks",
     },
+    iamRoleStatements: [
+      {
+        Effect: "Allow",
+        Action: ["dynamodb:*", "SNS:Publish"],
+        Resource: "*",
+      },
+    ],
   },
   // import the function via paths
   functions: {
@@ -50,6 +57,22 @@ const serverlessConfiguration: AWS = {
         Properties: {
           QueueName: "catalogItemsQueue",
           VisibilityTimeout: 30,
+        },
+      },
+      CreateProductTopic: {
+        Type: "AWS::SNS::Topic",
+        Properties: {
+          DisplayName: "createProductTopic",
+        },
+      },
+      CreateProductTopicEmailSubscription: {
+        Type: "AWS::SNS::Subscription",
+        Properties: {
+          Protocol: "email",
+          TopicArn: {
+            Ref: "CreateProductTopic",
+          },
+          Endpoint: "martin_csomai@epam.com",
         },
       },
     },

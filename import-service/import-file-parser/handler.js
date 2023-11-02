@@ -1,7 +1,6 @@
 'use strict'
 const { S3 } = require('aws-sdk');
 const csvParser = require('csv-parser');
-
 const s3 = new S3({ region: 'eu-central-1' });
 const { S3_BUCKET } = process.env;
 
@@ -10,10 +9,12 @@ const bucketDist = 'parsed';
 
 async function moveFiles(objectKey) {
   return new Promise((resolve, reject) => {
-    const readStream = s3.getObject({ Bucket: process.env.S3_BUCKET, Key: objectKey }).createReadStream();
+    const readStream = s3.getObject({ Bucket: process.env.S3_BUCKET, Key: objectKey });
 
-    readStream
-      .pipe(csvParser())
+    const rows = [];
+    readStream.createReadStream().pipe(csvParser()).on('data', chunk => {
+      rows.push(chunk);
+    })
       .on('end', async () => {
         const source = `${S3_BUCKET}/${objectKey}`;
         const distKey = objectKey.replace(bucketSource, bucketDist);
@@ -29,7 +30,7 @@ async function moveFiles(objectKey) {
           Key: objectKey,
         }).promise();
 
-        resolve();
+        resolve(rows);
       })
       .on('error', err => {
         console.log('Error:', err);
@@ -51,9 +52,10 @@ module.exports.main = async (event) => {
     const objectKey = record.s3.object.key;
 
     try {
-      await moveFiles(objectKey);
+      const array = await moveFiles(objectKey);
       return {
-        statusCode: 200
+        statusCode: 200,
+        body: JSON.stringify(array)
       }
     } catch (err) {
       return {
