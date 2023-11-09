@@ -13,6 +13,12 @@ provider:
   region: eu-central-1
   httpApi:
     cors: true
+    authorizers:
+      basicAuthorizer:
+        type: request
+        functionArn: "arn:aws:lambda:eu-central-1:906118294309:function:authorization-service-dev-basicAuthorizer"
+        identitySource:
+          - $request.header.Authorization
   iam:
     role:
       statements:
@@ -27,6 +33,8 @@ functions:
       - httpApi:
           path: /import
           method: GET
+          authorizer:
+            name: basicAuthorizer
     environment:
       S3_BUCKET: "import-service-bucket-4120"
   importFileParser:
